@@ -1,0 +1,6 @@
+---
+- name: Install node.js (npm + deps)
+  dnf: name=npm state=present enablerepo=epel
+
+- name: Install forever to run node app
+  npm: name=forever global=yes state=present

@@ -1,0 +1,19 @@
+---
+- name: check out drush 8.x
+  git:
+    repo: https://github.com/drush-ops/drush.git
+    version: 8.x
+    dest: /opt/drush
+
+- name: install drush deps with composer
+  shell: >
+    /usr/local/bin/composer install
+    chdir=/opt/drush
+    creates=/opt/drush/vendor/autoload.php
+
+- name: create drush bin symlink
+  file: 
+    src: /opt/drush/drush
+    dest: /usr/local/bin/drush
+    state: link
+
