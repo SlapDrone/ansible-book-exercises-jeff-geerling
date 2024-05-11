@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+
+  roles:
+    - geerlingguy.mysql
+    - geerlingguy.apache
+    - geerlingguy.php
+    - geerlingguy.php-mysql
+# need to set up host, vagrantfile etc. p144.
